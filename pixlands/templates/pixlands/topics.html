@@ -1,0 +1,71 @@
+{% extends "pixlands/base.html" %}
+
+{% block content %}
+  <div class="mb-4">
+    <div class="card-body">
+      <div class="d-flex mb-4">
+        <h1>Topics</h1>
+        <form class="new-button" action="{% url 'pixlands:new_topic' %}">
+          <button type="submit" class="btn btn-primary">+ Add new</button>
+        </form>
+      </div>
+      <ul class="topic">
+        {% for topic in topics %}
+          <li class="card mb-4 shadow-sm card-body topic-block">
+            <div class="mb-2">
+              <h3>
+                <a class="head" href="{% url 'pixlands:topic' topic.id %}">
+                  {{ topic }}
+                </a>
+                <a class="link" href="{% url 'pixlands:topic' topic.id %}">
+                  view more
+                </a>
+              </h3>
+            </div>
+            <div class="row no-gutters text-center text-lg-left">
+              {% for image in topic.images %}
+                <div class="d-flex imgs-col col-lg-3
+                            col-md-4 col-sm-6 col-12 p-2">
+                  <a
+                    class="aspect-ratio-parent"
+                    href="{% url 'pixlands:image' image.id %}"
+                  >
+                    <img
+                      class="aspect-ratio-child fit-image"
+                      src="{{ image.image_url }}"
+                      width="100"
+                      height="100"
+                    >
+                  </a>
+                </div>
+              {% empty %}
+                <div class="msg">
+                  There are no images for this topic yet.
+                </div>
+              {% endfor %}
+            </div>
+          </li>
+        {% empty %}
+          <li>No topics have been added yet.</li>
+        {% endfor %}
+      </ul>
+
+      <div class="pagination pagination-margin mb-4">
+        <span class="step-links">
+          {% if topics.has_previous %}
+              <a href="?page={{ topics.previous_page_number }}">previous</a>
+          {% endif %}
+
+          <span class="current">
+              Page {{ topics.number }} of {{ topics.paginator.num_pages }}.
+          </span>
+
+          {% if topics.has_next %}
+              <a href="?page={{ topics.next_page_number }}">next</a>
+          {% endif %}
+        </span>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "pixlands/base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+  <h2 class="form-header">Edit topic:</h2>
+  <form
+    action="{% url 'pixlands:edit_topic' topic.id %}"
+    method="post"
+    class="add-new-form"
+  >
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button name="submit" class="btn btn-primary mb-4">Save changes</button>
+  </form>
+
+    <div class="mt-4">
+      You can delete this topic.
+      <br>
+      This action cannot be undone.
+    </div>
+    <a href="{% url 'pixlands:delete_topic' topic.id %}">
+      <button name="submit" class="btn btn-danger mt-2">Delete topic</button>
+    </a>
+{% endblock content %}

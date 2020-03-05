@@ -1,0 +1,107 @@
+{% extends "pixlands/base.html" %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+  <div class="mb-4 card-body">
+    <div class="d-flex mb-4">
+      {% if profilepic.image_url %}
+        <a
+          class="div-avatar fit-image"
+          href="{% url 'pixlands:add_profile_pic' %}"
+        >
+          <img
+            class="fit-image avatar-home"
+            src="{{ profilepic.image_url }}"
+            width="110"
+            height="110"
+          >
+        </a>
+        <h2 class="flex-grow-1 username">{{ request.user }}</h2>
+      {% else %}
+        <a
+          class="div-avatar fit-image mr-2"
+          href="{% url 'pixlands:add_profile_pic' %}"
+        >
+          <img
+            class="avatar avatar-home"
+            src="/static/user.svg"
+            width="110"
+            height="110"
+          >
+        </a>
+        <h2 class="flex-grow-1 username">{{ request.user }}</h2>
+      {% endif %}
+    </div>
+
+    <div class="d-flex mb-4">
+      <h1>My Topics</h1>
+      <form class="new-button" action="{% url 'pixlands:new_topic' %}">
+        <button type="submit" class="btn btn-primary">+ Add new</button>
+      </form>
+    </div>
+
+    {% for topic in topics %}
+      <div class="topic card mb-4 shadow-sm">
+        <div class="card-body topic-block">
+          <h3 class="mb-3">
+            <a
+              class="head"
+              href="{% url 'pixlands:topic' topic.id %}"
+            >
+              {{ topic }}
+            </a>
+            <a
+              class="link"
+              href="{% url 'pixlands:topic' topic.id %}"
+            >
+              view more
+            </a>
+          </h3>
+
+          <div class="row no-gutters text-center text-lg-left">
+            {% for image in topic.images %}
+              <div class="d-flex imgs-col col-lg-3
+                          col-md-4 col-sm-6 col-12 p-2">
+                <a
+                  class="aspect-ratio-parent"
+                  href="{% url 'pixlands:image' image.id %}"
+                >
+                  <img
+                    class="aspect-ratio-child fit-image"
+                    src="{{ image.image_url }}"
+                    width="100"
+                    height="100"
+                  >
+                </a>
+              </div>
+            {% empty %}
+              <div class="msg">
+                There are no images for this topic yet.
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <li>No topics have been added yet.</li>
+    {% endfor %}
+
+    <div class="pagination pagination-margin mb-4">
+      <span class="step-links">
+        {% if topics.has_previous %}
+            <a href="?page={{ topics.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ topics.number }} of {{ topics.paginator.num_pages }}.
+        </span>
+
+        {% if topics.has_next %}
+            <a href="?page={{ topics.next_page_number }}">next</a>
+        {% endif %}
+      </span>
+    </div>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,150 @@
+{% extends 'pixlands/base.html' %}
+
+{% block content %}
+  <div class="img-list add-image">
+    <h1 class="comments-item mb-3">
+      {{ topic }}
+      <span class="owner">
+        by {{ topic.owner }}
+      </span>
+    </h1>
+    <div class="d-flex">
+      <form
+        class="flex-shrink-0 mb-4"
+        action="{% url 'pixlands:add_image' topic.id %}"
+      >
+        <button type="submit" class="btn btn-primary">+ Add Image</button>
+      </form>
+        {% if topic.owner == request.user %}
+          <form
+            class="flex-grow-1 comment-content"
+            action="{% url 'pixlands:edit_topic' topic.id %}"
+          >
+            <button type="submit" class="btn btn-danger">Edit Topic</button>
+          </form>
+        {% endif %}
+    </div>
+  </div>
+
+  <ul class="topic">
+    {% for image in images %}
+      <li>
+        <div class="img-list card mb-4 shadow-sm">
+          <div class="card-body pt-3 pb-3">
+            <div class="d-flex date align-items-center">
+              {% if image.profilepic %}
+                <img
+                  class="fit-image avatar"
+                  src="{{ image.profilepic.image_url }}"
+                >
+              {% else %}
+                <div class="fit-image avatar"></div>
+              {% endif %}
+              {{ image.owner }}
+              &nbsp;&ndash;&nbsp;
+              {{ image.date_added|date:'M d, Y H:i' }}
+            </div>
+            {% if image.text %}
+              <a
+                class="link-reset"
+                href="{% url 'pixlands:image' image.id %}"
+              >
+                <h4 class="align-items-center head-text">{{ image.text }}</h4>
+              </a>
+            {% endif %}
+          </div>
+          <a href="{% url 'pixlands:image' image.id %}">
+            <img
+              class="img-fluid img-inblock bd-placeholder-img-card-img-top"
+              src="{{ image.image_url }}"
+            >
+          </a>
+
+          <div class="d-flex justify-content-between
+                      align-items-center mb-2 mt-2">
+            <div class="d-flex align-items-center actions pl-2">
+              {% if user.is_authenticated %}
+                <a href="{% url 'pixlands:like_on_topic' image.id %}">
+                  <img class="like" src="/static/like.svg">
+                </a>
+              {% else %}
+                <a href="{% url 'users:login' %}">
+                  <img class="like" src="/static/like.svg">
+                </a>
+              {% endif %}
+              <a
+                class="link-reset"
+                href="{% url 'pixlands:image' image.id %}"
+              >
+                {% if image.likes == 1 %}
+                  {{ image.likes }} like
+                {% else %}
+                  {{ image.likes }} likes
+                {% endif %}
+              </a>
+              &#160;&#160;
+              <a
+                class="link-reset"
+                href="{% url 'pixlands:image' image.id %}#comments"
+              >
+                {% if image.comments == 1 %}
+                  {{ image.comments }} comment
+                {% else %}
+                  {{ image.comments }} comments
+                {% endif %}
+              </a>
+            </div>
+
+            {% if image.owner == request.user %}
+              <div>
+                <button
+                  type="button"
+                  class="else-btn mr-2"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                </button>
+                <div class="dropdown-menu">
+                  <a
+                    class="dropdown-item"
+                    href="{% url 'pixlands:edit_image' image.id %}"
+                  >
+                    edit image
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a
+                    class="dropdown-item"
+                    href="{% url 'pixlands:delete_image' image.id %}"
+                  >
+                    delete image
+                  </a>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </li>
+    {% empty %}
+      <li class="img-list mt-4 msg mb-4">
+        There are no images for this topic yet.
+      </li>
+    {% endfor %}
+  </ul>
+
+  <div class="pagination pagination-margin img-list mb-4">
+    <span class="step-links">
+      {% if images.has_previous %}
+          <a href="?page={{ images.previous_page_number }}">previous</a>
+      {% endif %}
+
+      <span class="current">
+          Page {{ images.number }} of {{ images.paginator.num_pages }}.
+      </span>
+
+      {% if images.has_next %}
+          <a href="?page={{ images.next_page_number }}">next</a>
+      {% endif %}
+    </span>
+  </div>
+{% endblock content %}

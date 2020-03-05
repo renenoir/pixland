@@ -1,0 +1,87 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pixland</title>
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="/static/style.css" />
+    {% bootstrap_javascript %}
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="{% url 'pixlands:index' %}">Pixland</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExample04"
+        aria-controls="navbarsExample04"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="mr-auto navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'pixlands:topics' %}">
+              Topics
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'pixlands:profile' %}">
+              Profile
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-link disabled">
+              Hello, {{ user.username }}
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'users:logout' %}">
+                log out
+              </a>
+            </li>
+          {% else %}
+            <li>
+              <a class="nav-link" href="{% url 'users:register' %}">
+                Sign Up
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'users:login' %}">
+                Log In
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+        <form class="form-inline my-2 my-md-0" action="/search/">
+          <input
+            class="form-control mr-sm-2"
+            type="text"
+            name="q"
+            placeholder="Search"
+          >
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <div class="page-header">
+        {% block header %}{% endblock header %}
+      </div>
+      {% block content %}{% endblock content %}
+    </div>
+  </body>
+

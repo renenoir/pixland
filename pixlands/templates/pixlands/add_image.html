@@ -1,0 +1,49 @@
+{% extends 'pixlands/base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+  {% load staticfiles %}
+  <div class="mb-4">
+    /<a
+      class="topics"
+      href="{% url 'pixlands:topic' topic.id %}">{{ topic }}
+    </a>
+  </div>
+  <h2 class="form-header">Add Image</h2>
+  {% if error_msg %}
+    <p class="error-msg">{{ error_msg }}</p>
+  {% endif %}
+  <form
+    action="{% url 'pixlands:add_image' topic.id %}"
+    method="post"
+    class="add-new-form"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    <input
+      type="file"
+      name="image"
+      accept="image/*"
+      class="form-control-file mb-4"
+      title=""
+      id="id_image"
+    />
+    <div class="form-group row">
+      <div class="col-1 pt-1">
+        <label for="id_text">Text:</label>
+      </div>
+      <div class="col-11">
+        <input
+          type="text"
+          name="text"
+          value="{{ image.text }}"
+          class="form-control"
+          placeholder="Enter your text here"
+          id="id_text"
+        />
+      </div>
+      </div>
+    <input type="submit" class="btn btn-primary mb-4" value="Upload" />
+  </form>
+{% endblock content %}
+

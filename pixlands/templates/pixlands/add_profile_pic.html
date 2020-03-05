@@ -1,0 +1,18 @@
+{% extends 'pixlands/base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+  {% load staticfiles %}
+  <h2 class="form-header">Add Profile Pic</h2>
+  <form
+    action="{% url 'pixlands:add_profile_pic' %}"
+    method="post"
+    class="form"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" class="btn btn-primary mb-4" value="Upload" />
+  </form>
+{% endblock content %}
+

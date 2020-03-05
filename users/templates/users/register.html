@@ -1,0 +1,17 @@
+{% extends "pixlands/base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+  <form
+    class="login"
+    method="post"
+    action="{% url 'users:register' %}"
+    class="form"
+  >
+    <h2 class="form-header">Create an Account.</h2>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button name="submit" class="btn btn-primary">Register</button>
+    <input type="hidden" name="next" value="{% url 'pixlands:index' %}" />
+  </form>
+{% endblock content %}

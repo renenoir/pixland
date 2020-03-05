@@ -1,0 +1,55 @@
+{% extends "pixlands/base.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-10 col-md-9 col-12">
+      <div class="row imgs-row no-gutters text-center text-lg-left">
+        {% for image in images %}
+          <div class="d-flex col-lg-3 col-md-4 col-sm-6 col-12 p-2">
+            <a
+              class="aspect-ratio-parent d-flex"
+              href="{% url 'pixlands:image' image.id %}"
+            >
+              <img
+                class="aspect-ratio-child fit-image"
+                src="{{ image.image_url }}"
+              >
+            </a>
+          </div>
+        {% empty %}
+          <div class="msg">
+            There are no images yet.
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="pagination pagination-margin">
+        <span class="step-links">
+          {% if images.has_previous %}
+            <a href="?page={{ images.previous_page_number }}">previous</a>
+          {% endif %}
+          <span class="current">
+            Page {{ images.number }} of {{ images.paginator.num_pages }}.
+          </span>
+          {% if images.has_next %}
+            <a href="?page={{ images.next_page_number }}">next</a>
+          {% endif %}
+        </span>
+      </div>
+    </div>
+
+    <aside class="col-lg-2 col-md-3 col-12 mb-5">
+      <h2 class="head col-margin">Last topics:</h2>
+      <div class="mt-4">
+        {% for topic in topics %}
+          <p>
+            <a class="topics" href="{% url 'pixlands:topic' topic.id %}">
+              <span class="arrow">{{ topic }}</span>
+            </a>
+          </p>
+        {% endfor %}
+      </div>
+      <a class="link" href="{% url 'pixlands:topics' %}">more topics</a>
+    </aside>
+  </div>
+{% endblock content %}

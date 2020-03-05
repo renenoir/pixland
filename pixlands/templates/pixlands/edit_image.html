@@ -1,0 +1,36 @@
+{% extends "pixlands/base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+  <h2 class="form-header">Edit image:</h2>
+  <form
+    action="{% url 'pixlands:edit_image' image.id %}"
+    method="post"
+    class="add-new-form"
+  >
+    {% csrf_token %}
+      <div class="form-group row align-items-center">
+        <div class="col-1 pt-1"><label for="id_text">Text:</label></div>
+        <div class="col-11">
+          <input
+            type="text"
+            name="text"
+            value="{{ image.text }}"
+            class="form-control"
+            placeholder="Enter your text here"
+            id="id_text"
+          >
+        </div>
+      </div>
+    <button type ="submit" class="btn btn-primary mb-4">Save changes</button>
+  </form>
+
+    <div class="mt-4">
+      You can delete this image.
+      <br>
+      This action cannot be undone.
+    </div>
+    <a href="{% url 'pixlands:delete_image' image.id %}">
+      <button name="submit" class="btn btn-danger mt-2">Delete image</button>
+    </a>
+{% endblock content %}
