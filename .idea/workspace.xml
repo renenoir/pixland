@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="04e531fd-0612-42b8-a4af-603941126a90" name="Default Changelist" comment="" />
+    <list default="true" id="04e531fd-0612-42b8-a4af-603941126a90" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,7 +14,17 @@
     <favorites_list name="pixland" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="89" column="6" selection-start-line="89" selection-start-column="6" selection-end-line="89" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -124,6 +136,16 @@
               <item name="pixland" type="b2602c69:ProjectViewProjectNode" />
               <item name="pixland" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="pixland" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pixland" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pixland" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pixland" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -198,11 +220,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50080514" side_tool="true" weight="0.23363096" />
       <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49919486" visible="true" weight="0.2559524" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.49925596" visible="true" weight="0.4840336" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.49925596" visible="true" weight="0.31092438" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50074404" side_tool="true" weight="0.3277311" />
       <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
@@ -238,12 +261,8 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/media/user_pics/user_2/PIHacYHjFuo_E7LV7ym.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/media/user_pics/user_2/PIHacYHjFuo_ZDFRmBo.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/media/user_pics/user_2/PIHacYHjFuo_E7LV7ym.jpg" />
+    <entry file="file://$PROJECT_DIR$/media/user_pics/user_2/PIHacYHjFuo_ZDFRmBo.jpg" />
     <entry file="file://$PROJECT_DIR$/pixlands/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -261,9 +280,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/media/user_pics/user_10/bKkA0B6_-OM.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/media/user_pics/user_10/bKkA0B6_-OM.jpg" />
     <entry file="file://$PROJECT_DIR$/pixlands/migrations/0030_auto_20200304_1821.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -339,12 +356,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixlands/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/users/tests.py" />
+    <entry file="file://$PROJECT_DIR$/pixlands/tests.py" />
     <entry file="file://$PROJECT_DIR$/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
@@ -365,9 +378,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/users/admin.py" />
     <entry file="file://$PROJECT_DIR$/users/templates/users/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -430,13 +441,7 @@
     <entry file="file://$PROJECT_DIR$/users/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pl_env/Lib/site-packages/bulma/tests/test_commands.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pl_env/Lib/site-packages/bulma/tests/test_commands.py" />
     <entry file="file://$PROJECT_DIR$/pixland/urls.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -446,11 +451,7 @@
     <entry file="file://$PROJECT_DIR$/pixlands/migrations/0023_delete_profile.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pixlands/migrations/0013_auto_20200305_1732.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-207" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pixlands/migrations/0013_auto_20200305_1732.py" />
     <entry file="file://$PROJECT_DIR$/pixlands/migrations/0025_auto_20191014_1517.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-133" />
@@ -463,9 +464,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/user.svg" />
     <entry file="file://$PROJECT_DIR$/pixlands/migrations/0021_profile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -484,13 +483,7 @@
         <state relative-caret-position="-133" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/users/models.py" />
     <entry file="file://$PROJECT_DIR$/pixlands/templates/pixlands/search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -522,8 +515,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="42" column="4" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+        <state relative-caret-position="203">
+          <caret line="89" column="6" selection-start-line="89" selection-start-column="6" selection-end-line="89" selection-end-column="6" />
         </state>
       </provider>
     </entry>
