@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e531fd-0612-42b8-a4af-603941126a90" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pl_env/Scripts/django-admin.exe" beforeDir="false" afterPath="$PROJECT_DIR$/pl_env/Scripts/django-admin.exe" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,10 +17,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/pixlands/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="89" column="6" selection-start-line="89" selection-start-column="6" selection-end-line="89" selection-end-column="6" />
+            <state relative-caret-position="127">
+              <caret line="236" column="34" selection-start-line="236" selection-start-column="34" selection-end-line="236" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#53#0" expanded="true" />
+                <marker date="1583420162588" expanded="true" signature="1562:1643" ph="..." />
+                <marker date="1583420162588" expanded="true" signature="1566:1643" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,6 +71,7 @@
       <find>username</find>
       <find>mar-bot</find>
       <find>lib</find>
+      <find>python3</find>
     </findStrings>
     <dirStrings>
       <dir>C:\python_work\pixland</dir>
@@ -114,6 +121,7 @@
         <option value="$PROJECT_DIR$/pixlands/views.py" />
         <option value="$PROJECT_DIR$/pixlands/templates/pixlands/search.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -128,7 +136,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -138,18 +145,13 @@
             </path>
             <path>
               <item name="pixland" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pixland" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pixland" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pixland" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -220,12 +222,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50080514" side_tool="true" weight="0.23363096" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49919486" visible="true" weight="0.2559524" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49919486" visible="true" weight="0.14583333" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.49925596" visible="true" weight="0.31092438" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.49925596" visible="true" weight="0.20504202" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50074404" side_tool="true" weight="0.3277311" />
       <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
@@ -261,7 +262,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/media/user_pics/user_2/PIHacYHjFuo_E7LV7ym.jpg" />
     <entry file="file://$PROJECT_DIR$/media/user_pics/user_2/PIHacYHjFuo_ZDFRmBo.jpg" />
     <entry file="file://$PROJECT_DIR$/pixlands/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -325,13 +325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pixlands/templates/pixlands/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -494,18 +487,6 @@
     <entry file="file://$PROJECT_DIR$/pixlands/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pixlands/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="412" lean-forward="true" selection-start-line="412" selection-end-line="412" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-            <marker date="1583420162588" expanded="true" signature="1562:1643" ph="..." />
-            <marker date="1583420162588" expanded="true" signature="1566:1643" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pixlands/templates/pixlands/topic.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -515,13 +496,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
+        <state relative-caret-position="234">
           <caret line="89" column="6" selection-start-line="89" selection-start-column="6" selection-end-line="89" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixlands/templates/pixlands/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1541">
+          <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pixlands/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="236" column="34" selection-start-line="236" selection-start-column="34" selection-end-line="236" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+            <marker date="1583420162588" expanded="true" signature="1562:1643" ph="..." />
+            <marker date="1583420162588" expanded="true" signature="1566:1643" ph="..." />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
