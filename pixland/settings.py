@@ -26,9 +26,9 @@ MEDIA_URL = '/media/'
 SECRET_KEY = 'zwkf5ss+%iz5@6x$84!%0sqe!nv%0m+nt5)w24p770&_xod(!q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -64,7 +64,7 @@ ROOT_URLCONF = 'pixland.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'pixland/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
