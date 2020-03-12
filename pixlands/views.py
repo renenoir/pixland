@@ -11,6 +11,7 @@ from pixlands.models import Topic, Image, ProfilePic, Comment, Like
 from pixlands.forms import TopicForm, ImageForm, EditImageForm, \
                            ProfilePicForm, CommentForm
 import os
+from django.conf import settings
 
 
 def index(request):
@@ -234,8 +235,7 @@ def add_profile_pic(request):
                 old_profilepic = ProfilePic.objects.filter(
                     owner=request.user
                 ).get()
-                path = 'C:\\python_work\\pixland\\media\\' \
-                       'user_pics\\user_{0}\\{1}'
+                path = settings.MEDIA_ROOT + '\\user_pics\\user_{0}\\{1}'
                 os.remove(
                     path.format(request.user.id, os.path.basename(
                         old_profilepic.image_url
@@ -340,7 +340,7 @@ def delete_image(request, image_id):
     date = image.date_added
     topic = image.topic
     if image.owner == request.user:
-        path = 'C:\\python_work\\pixland\\media\\photos\\{0}\\{1}\\{2}\\{3}'
+        path = settings.MEDIA_ROOT + '\\photos\\{0}\\{1}\\{2}\\{3}'
         os.remove(
             path.format(date.year, f"{date.month:02d}", f"{date.day:02d}",
                         os.path.basename(image.image_url)))
