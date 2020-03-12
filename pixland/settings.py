@@ -38,7 +38,7 @@ else:
     SECRET_KEY = "hello!"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost']
 
@@ -163,8 +163,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     DEBUG = False
 
     # Конфигурация статических ресурсов
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    STATIC_ROOT = 'staticfiles'
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
+    # BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    # STATIC_ROOT = 'staticfiles'
+    # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
