@@ -37,7 +37,13 @@ def index(request):
     except EmptyPage:
         images = paginator.page(paginator.num_pages)
 
-    context = {'topics': topics, 'images': images}
+    last_topics = topics[:10]
+
+    context = {
+        'topics': topics,
+        'images': images,
+        'last_topics': last_topics
+    }
     return render(request, 'pixlands/index.html', context)
 
 

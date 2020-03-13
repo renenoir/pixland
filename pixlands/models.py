@@ -40,7 +40,7 @@ class Image(models.Model):
     @property
     def image_url(self):
         if self.image and hasattr(self.image, 'url'):
-            return self.image.url
+            return '/static' + self.image.url
 
     def __str__(self):
         """Возвращает строковое представление модели."""
@@ -59,7 +59,7 @@ class ProfilePic(models.Model):
     @property
     def image_url(self):
         if self.image and hasattr(self.image, 'url'):
-            return self.image.url
+            return '/static' + self.image.url
 
 
 class Comment(models.Model):

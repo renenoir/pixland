@@ -41,7 +41,7 @@
     <aside class="col-lg-2 col-md-3 col-12 mb-5">
       <h2 class="head col-margin">Last topics:</h2>
       <div class="mt-4">
-        {% for topic in topics %}
+        {% for topic in last_topics %}
           <p>
             <a class="topics" href="{% url 'pixlands:topic' topic.id %}">
               <span class="arrow">{{ topic }}</span>
