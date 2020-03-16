@@ -34,9 +34,9 @@
       {% endif %}
     </div>
 
-    <div class="d-flex mb-4">
+    <div class="d-flex align-items-center mb-4">
       <h1>My Topics</h1>
-      <form class="new-button" action="{% url 'pixlands:new_topic' %}">
+      <form class="new-button mb-2" action="{% url 'pixlands:new_topic' %}">
         <button type="submit" class="btn btn-primary">+ Add new</button>
       </form>
     </div>
@@ -44,14 +44,18 @@
     {% for topic in topics %}
       <div class="topic card mb-4 shadow-sm">
         <div class="card-body topic-block">
-          <div class="ml-2 mt-1 d-flex align-items-center">
-            <h3>
+          <div class="ml-2 d-flex align-items-center
+                      justify-content-between">
+            <h3 class="line-break">
               <a class="head" href="{% url 'pixlands:topic' topic.id %}">
                 {{ topic }}
               </a>
             </h3>
-            <a class="link ml-2" href="{% url 'pixlands:topic' topic.id %}">
-              view more
+            <a
+              class="link ml-2 mr-2"
+              href="{% url 'pixlands:topic' topic.id %}"
+            >
+              more
             </a>
           </div>
 
