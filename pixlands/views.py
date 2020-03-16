@@ -12,6 +12,7 @@ from pixlands.forms import TopicForm, ImageForm, EditImageForm, \
                            ProfilePicForm, CommentForm
 import os
 from django.conf import settings
+from django.core.files.images import get_image_dimensions
 
 
 def index(request):
@@ -196,6 +197,7 @@ def new_topic(request):
 def add_image(request, topic_id):
     """Добавление нового изображения в конкретную тему."""
     error_msg = None
+    width = 600
     topic = get_object_or_404(Topic, id=topic_id)
     if topic.owner != request.user and topic.public == False:
         raise Http404
@@ -205,9 +207,10 @@ def add_image(request, topic_id):
     else:
         # Отправленны данные POST; обработать данные
         form = ImageForm(request.POST, request.FILES)
+        if 'image' in request.FILES:
+            form.image = request.FILES['image']
+            width, height = get_image_dimensions(form.image)
         if form.is_valid():
-            if 'image' in request.FILES:
-                form.image = request.FILES['image']
             new_image = form.save(commit=False)
             new_image.owner = request.user
             new_image.topic = topic
@@ -217,7 +220,10 @@ def add_image(request, topic_id):
                 args=[topic_id]
             ))
         else:
-            error_msg = 'You need to add an image!'
+            if width < 600:
+                error_msg = 'The image supposed to be 600px wide minimum!'
+            else:
+                error_msg = 'You need to add an image!'
 
     context = {'topic': topic, 'form': form, 'error_msg': error_msg}
     return render(request, 'pixlands/add_image.html', context)

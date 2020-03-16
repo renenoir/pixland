@@ -11,14 +11,18 @@
     {% for topic in topics %}
       <div class="topic card mb-4 shadow-sm">
         <div class="card-body topic-block">
-          <div class="ml-2 mt-1 d-flex align-items-center">
-            <h3>
+          <div class="ml-2 mt-1 d-flex align-items-center
+                      justify-content-between">
+            <h3 class="line-break">
               <a class="head" href="{% url 'pixlands:topic' topic.id %}">
                 {{ topic }}
               </a>
             </h3>
-            <a class="link ml-2" href="{% url 'pixlands:topic' topic.id %}">
-              view more
+            <a
+              class="link ml-2 mr-2"
+              href="{% url 'pixlands:topic' topic.id %}"
+            >
+              more
             </a>
           </div>
 
@@ -39,7 +43,7 @@
                 </a>
               </div>
             {% empty %}
-              <div class="msg">
+              <div class="msg ml-2">
                 There are no images for this topic yet.
               </div>
             {% endfor %}

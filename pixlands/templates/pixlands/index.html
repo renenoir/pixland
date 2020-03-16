@@ -42,14 +42,19 @@
       <h4 class="col-margin">Last topics:</h4>
       <div class="mt-3">
         {% for topic in last_topics %}
-          <p>
+          <p class="line-break">
             <a class="topics" href="{% url 'pixlands:topic' topic.id %}">
               <span class="arrow">{{ topic }}</span>
             </a>
           </p>
         {% endfor %}
       </div>
-      <a class="btn btn-secondary" href="{% url 'pixlands:topics' %}">more topics</a>
+      <a
+        class="btn btn-secondary"
+        href="{% url 'pixlands:topics' %}"
+      >
+        more topics
+      </a>
     </aside>
   </div>
 {% endblock content %}

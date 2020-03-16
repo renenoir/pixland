@@ -48,7 +48,7 @@
 .link {
   color: darkred;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .link-reset,
@@ -59,9 +59,17 @@
 }
 
 .head {
-  font-size: 30px;
+  font-size: 22px;
   color: rgb(31, 31, 31);
   margin-right: 10px;
+  width: 18ch;
+}
+
+.line-break {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
 
 .head:hover,
