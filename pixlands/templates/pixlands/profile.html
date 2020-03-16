@@ -3,7 +3,7 @@
 {% load bootstrap4 %}
 
 {% block content %}
-  <div class="mb-4 card-body">
+  <div class="mb-4">
     <div class="d-flex mb-4">
       {% if profilepic.image_url %}
         <a
@@ -20,7 +20,7 @@
         <h2 class="flex-grow-1 username">{{ request.user }}</h2>
       {% else %}
         <a
-          class="div-avatar fit-image mr-2"
+          class="div-avatar fit-image"
           href="{% url 'pixlands:add_profile_pic' %}"
         >
           <img
@@ -44,20 +44,16 @@
     {% for topic in topics %}
       <div class="topic card mb-4 shadow-sm">
         <div class="card-body topic-block">
-          <h3 class="mb-3">
-            <a
-              class="head"
-              href="{% url 'pixlands:topic' topic.id %}"
-            >
-              {{ topic }}
-            </a>
-            <a
-              class="link"
-              href="{% url 'pixlands:topic' topic.id %}"
-            >
+          <div class="ml-2 mt-1 d-flex align-items-center">
+            <h3>
+              <a class="head" href="{% url 'pixlands:topic' topic.id %}">
+                {{ topic }}
+              </a>
+            </h3>
+            <a class="link ml-2" href="{% url 'pixlands:topic' topic.id %}">
               view more
             </a>
-          </h3>
+          </div>
 
           <div class="row no-gutters text-center text-lg-left">
             {% for image in topic.images %}
@@ -84,7 +80,7 @@
         </div>
       </div>
     {% empty %}
-      <li>No topics have been added yet.</li>
+      <p class="msg pt-2 pb-4">No topics have been added yet.</p>
     {% endfor %}
 
     <div class="pagination pagination-margin mb-4">

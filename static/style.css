@@ -48,7 +48,7 @@
 .link {
   color: darkred;
   font-size: 16px;
-  padding-top: 30px;
+  font-weight: 500;
 }
 
 .link-reset,
@@ -59,9 +59,9 @@
 }
 
 .head {
-  font-size: 34px;
+  font-size: 30px;
   color: rgb(31, 31, 31);
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .head:hover,
@@ -98,6 +98,7 @@ ul {
 
 body {
   background-color: rgb(236, 236, 236);
+  font-size: 1.15rem;
 }
 
 @media (max-width: 1000px) {
@@ -162,7 +163,7 @@ body {
 .topics {
   color: rgb(45, 50, 90);
   text-decoration: underline;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .like {
@@ -253,7 +254,7 @@ body {
 }
 
 .msg {
-  font-size: 22px;
+  font-size: 16px;
 }
 
 .error-msg {
@@ -263,5 +264,5 @@ body {
 
 .username {
   padding-top: 15px;
-  margin-left: 12px;
+  margin-left: 13px;
 }
