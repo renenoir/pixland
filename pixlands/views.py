@@ -183,10 +183,10 @@ def new_topic(request):
             new_topic = form.save(commit=False)
             new_topic.owner = request.user
             new_topic.save()
-            if new_topic.public == True:
-                return HttpResponseRedirect(reverse('pixlands:topics'))
-            else:
-                return HttpResponseRedirect(reverse('pixlands:profile'))
+            return HttpResponseRedirect(reverse(
+                'pixlands:topic',
+                args=[new_topic.id]
+            ))
 
     context = {'form': form}
     return render(request, 'pixlands/new_topic.html', context)
@@ -330,10 +330,18 @@ def delete_topic(request, topic_id):
     """Удаляет тему."""
     topic = get_object_or_404(Topic, id=topic_id)
     if topic.owner == request.user:
+        images = Image.objects.filter(topic=topic)
+        for image in images:
+            date = image.date_added
+            path = settings.MEDIA_ROOT + '\\photos\\{0}\\{1}\\{2}\\{3}'
+            os.remove(
+                path.format(date.year, f"{date.month:02d}", f"{date.day:02d}",
+                            os.path.basename(image.image_url)))
+            image.delete()
         topic.delete()
     else:
         raise Http404
-    if topic.public == True:
+    if topic.public:
         return HttpResponseRedirect(reverse('pixlands:topics'))
     else:
         return HttpResponseRedirect(reverse('pixlands:profile'))
