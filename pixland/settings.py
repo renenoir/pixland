@@ -161,7 +161,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     # Разрешены все заголовки хостов
     ALLOWED_HOSTS = ['pixland.herokuapp.com']
 
-    DEBUG = True
+    DEBUG = False
 
     # Конфигурация статических ресурсов
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
