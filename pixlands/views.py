@@ -248,12 +248,24 @@ def add_profile_pic(request):
                 old_profilepic = ProfilePic.objects.filter(
                     owner=request.user
                 ).get()
-                path = settings.MEDIA_ROOT + '\\user_pics\\user_{0}\\{1}'
-                os.remove(
-                    path.format(request.user.id, os.path.basename(
-                        old_profilepic.image_url
-                    ))
-                )
+                cwd = os.getcwd()
+                if cwd == '/app' or cwd[:4] == '/tmp':
+                    client = boto3.client('s3')
+                    path = 'static/user_pics/user_{0}/{1}'
+                    client.delete_object(
+                        Bucket=settings.AWS_STORAGE_BUCKET_NAME,
+                        Key=path.format(
+                            request.user.id,
+                            os.path.basename(old_profilepic.image_url)
+                        )
+                    )
+                else:
+                    path = settings.MEDIA_ROOT + '\\user_pics\\user_{0}\\{1}'
+                    os.remove(
+                        path.format(request.user.id, os.path.basename(
+                            old_profilepic.image_url
+                        ))
+                    )
                 old_profilepic.delete()
             except ObjectDoesNotExist:
                 None
@@ -374,13 +386,12 @@ def delete_image(request, image_id):
                     os.path.basename(image.image_url)
                 )
             )
-            image.delete()
         else:
             path = settings.MEDIA_ROOT + '\\photos\\{0}\\{1}\\{2}\\{3}'
             os.remove(
                 path.format(date.year, f"{date.month:02d}", f"{date.day:02d}",
                             os.path.basename(image.image_url)))
-            image.delete()
+        image.delete()
     else:
         raise Http404
     return HttpResponseRedirect(reverse('pixlands:topic', args=[topic.id]))
