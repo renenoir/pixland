@@ -13,6 +13,7 @@ from pixlands.forms import TopicForm, ImageForm, EditImageForm, \
 import os
 from django.conf import settings
 from django.core.files.images import get_image_dimensions
+import boto3
 
 
 def index(request):
@@ -360,11 +361,26 @@ def delete_image(request, image_id):
     date = image.date_added
     topic = image.topic
     if image.owner == request.user:
-        path = settings.MEDIA_ROOT + '\\photos\\{0}\\{1}\\{2}\\{3}'
-        os.remove(
-            path.format(date.year, f"{date.month:02d}", f"{date.day:02d}",
-                        os.path.basename(image.image_url)))
-        image.delete()
+        cwd = os.getcwd()
+        if cwd == '/app' or cwd[:4] == '/tmp':
+            client = boto3.client('s3')
+            path = 'static/photos/{0}/{1}/{2}/{3}'
+            client.delete_object(
+                Bucket=settings.AWS_STORAGE_BUCKET_NAME,
+                Key=path.format(
+                    date.year,
+                    f"{date.month:02d}",
+                    f"{date.day:02d}",
+                    os.path.basename(image.image_url)
+                )
+            )
+            image.delete()
+        else:
+            path = settings.MEDIA_ROOT + '\\photos\\{0}\\{1}\\{2}\\{3}'
+            os.remove(
+                path.format(date.year, f"{date.month:02d}", f"{date.day:02d}",
+                            os.path.basename(image.image_url)))
+            image.delete()
     else:
         raise Http404
     return HttpResponseRedirect(reverse('pixlands:topic', args=[topic.id]))

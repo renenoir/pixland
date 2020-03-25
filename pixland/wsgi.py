@@ -17,7 +17,4 @@ from django.conf import settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pixland.settings')
 
 application = get_wsgi_application()
-application = Cling(WhiteNoise(
-    application,
-    root=settings.STATIC_ROOT
-))
+
